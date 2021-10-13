@@ -1,0 +1,88 @@
+### successful POST req of blog
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: Bearer <replace with valid token>
+
+{
+  "title": "The American Way",
+  "author": "Patriotic Patron",
+  "url": "https://www.nogripeswithstarsnstripes.com/",
+  "likes": 1776
+}
+
+# {
+#   "title": "Fried or Fertilized",
+#   "author": "Yung Humma",
+#   "url": "https://blog.howyoulikeyoureggs.com/",
+#   "likes": 100
+# }
+
+# {
+#   "title": "Hong Kong Phooey",
+#   "author": "Phoney Bologna",
+#   "url": "https://www.blogzilla.org/",
+#   "likes": 3
+# }
+
+# {
+#   "title": "Magic",
+#   "author": "Parry Hotter",
+#   "url": "https://www.magickedawayblog.com/",
+#   "likes": 5
+# }
+
+### unsuccessful POST req of blog, invalid token
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: Bearer <replace with bad token>
+
+{
+  "title": "Will Not Post",
+  "author": "Contrary Canary",
+  "url": "https://www.cantorwont.com/",
+  "likes": 0
+}
+
+### unsuccessful POST req of blog, no token
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+
+{
+  "title": "Will Not Post",
+  "author": "Contrary Canary",
+  "url": "https://www.cantorwont.com/",
+  "likes": 0
+}
+
+### unsuccessful POST req, unknown endpoint
+POST http://localhost:3003/api/blog
+Content-Type: application/json
+
+{
+  "title": "The Void",
+  "author": "unknown",
+  "url": "https://www.nothingness.org",
+  "likes": 0
+}
+
+### unsuccessful POST req, missing title
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: Bearer <replace with valid token>
+
+{
+  "author": "Schwan Fawn",
+  "url": "http://blog.donottitleme.com",
+  "likes": 1
+}
+
+### unsuccessful POST req, missing url
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: Bearer <replace with valid token>
+
+{
+  "title": "Tales of the Lost URL",
+  "author": "Absent Mind",
+  "likes": 7
+}
